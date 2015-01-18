@@ -10,15 +10,13 @@ void setup() {
 
 void loop() {
   Serial.println("On");
-  pinMode(PIN_ROW_FET, OUTPUT);
-  pinMode(PIN_COLUMN_FET, OUTPUT);
   digitalWrite(PIN_ROW_FET, HIGH);
   digitalWrite(PIN_COLUMN_FET, LOW);
   delay(5000);
 
   Serial.println("Off");
-  pinMode(PIN_ROW_FET, INPUT);
-  pinMode(PIN_COLUMN_FET, INPUT);
+  digitalWrite(PIN_ROW_FET, LOW);
+  digitalWrite(PIN_COLUMN_FET, LOW);
   delay(5000);
 
   // int a = analogRead(1);
