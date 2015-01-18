@@ -9,13 +9,13 @@ int NUM_COLS = 14;
 int NUM_ROWS = 6;
 
 int NUM_INPUTS = 6;
-int FIRST_INPUT = 4;
+int FIRST_INPUT = 0;
 int FIRST_INPUT_COL = 0;
 
 int BLUE_PLAYER = 1;
 int GREEN_PLAYER = 2;
 
-int grid[6][14] = {
+int grid[6][7] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -32,11 +32,11 @@ int currentPlayer = BLUE_PLAYER;
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Starting");
+  Serial.println("Starting Master");
   comms.begin(9600);
   timer.every(20, pollInputs);
   timer.every(10, updateGrid);
-  comms.write('r');
+  comms.write('s');
 }
 
 void loop() {
@@ -45,7 +45,7 @@ void loop() {
   if (c != -1) {
     switch (c) {
         case 'i':
-          handleInput(comms.read() - '0');
+          handleInput(comms.read());
           break;
         default:
           break;
@@ -60,11 +60,13 @@ void updateGrid() {
   if (currentRow > NUM_ROWS)
     currentRow = 0;
 
+  comms.write('c');
+  for (int i=0;i<NUM_COLS;i++) {
+    comms.write(grid[currentRow][i]);
+  }
+
   pinMode(currentRow+FIRST_ROW, OUTPUT);
   digitalWrite(currentRow+FIRST_ROW, HIGH);
-
-  for (int i=0;i<NUM_COLS;i++)
-    comms.write(grid[currentRow][i]);
 }
 
 void pollInputs() {
