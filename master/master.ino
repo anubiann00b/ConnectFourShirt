@@ -1,5 +1,5 @@
-int PIN_ROW_FET = 8;
-int PIN_COLUMN_FET = 8;
+int PIN_ROW_FET = 9;
+int PIN_COLUMN_FET = 10;
 
 void setup() {
   Serial.begin(9600);
