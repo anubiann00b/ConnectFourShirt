@@ -9,24 +9,16 @@ void setup() {
 }
 
 void loop() {
-  Serial.println("Row and Column");
-  digitalWrite(PIN_ROW_FET, LOW);
-  digitalWrite(PIN_COLUMN_FET, LOW);
-  delay(10000);
-
-  Serial.println("Column");
+  Serial.println("On");
+  pinMode(PIN_ROW_FET, OUTPUT);
+  pinMode(PIN_COLUMN_FET, OUTPUT);
   digitalWrite(PIN_ROW_FET, HIGH);
   digitalWrite(PIN_COLUMN_FET, LOW);
   delay(5000);
 
-  Serial.println("Row");
-  digitalWrite(PIN_ROW_FET, LOW);
-  digitalWrite(PIN_COLUMN_FET, HIGH);
-  delay(5000);
-
-  Serial.println("None");
-  digitalWrite(PIN_ROW_FET, HIGH);
-  digitalWrite(PIN_COLUMN_FET, HIGH);
+  Serial.println("Off");
+  pinMode(PIN_ROW_FET, INPUT);
+  pinMode(PIN_COLUMN_FET, INPUT);
   delay(5000);
 
   // int a = analogRead(1);
