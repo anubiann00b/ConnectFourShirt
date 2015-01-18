@@ -10,8 +10,8 @@ void setup() {
 
 void loop() {
   Serial.println("On");
-  digitalWrite(PIN_ROW_FET, HIGH);
-  digitalWrite(PIN_COLUMN_FET, LOW);
+  digitalWrite(PIN_ROW_FET, LOW);
+  digitalWrite(PIN_COLUMN_FET, HIGH);
   delay(5000);
 
   Serial.println("Off");
