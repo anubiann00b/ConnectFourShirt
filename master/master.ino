@@ -14,10 +14,10 @@ void loop() {
   digitalWrite(PIN_COLUMN_FET, HIGH);
   delay(5000);
 
-  // Serial.println("Off");
-  // digitalWrite(PIN_ROW_FET, LOW);
-  // digitalWrite(PIN_COLUMN_FET, LOW);
-  // delay(5000);
+  Serial.println("Off");
+  digitalWrite(PIN_ROW_FET, LOW);
+  digitalWrite(PIN_COLUMN_FET, LOW);
+  delay(5000);
 
   // int a = analogRead(1);
   // Serial.print(a);
