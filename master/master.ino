@@ -1,27 +1,35 @@
-int PIN_ROW_FET = 9;
-int PIN_COLUMN_FET = 10;
+int FIRST_COL = 0;
+int FIRST_ROW = 0;
+
+const int NUM_COLS = 14;
+const int NUM_ROWS = 6;
+
+int grid[NUM_ROWS][NUM_COLS] = {
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+};
+
+SoftwareSerial comms(2,3);
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Hello world!");
-  pinMode(PIN_ROW_FET, OUTPUT);
-  pinMode(PIN_COLUMN_FET, OUTPUT);
+  Serial.println("Starting");
 }
 
 void loop() {
-  Serial.println("On");
-  digitalWrite(PIN_ROW_FET, LOW);
-  digitalWrite(PIN_COLUMN_FET, HIGH);
-  delay(5000);
+  for (int i=0;i<NUM_ROWS;i++) {
+    for (int j=0j<NUM_COLS;j++) {
 
-  Serial.println("Off");
-  digitalWrite(PIN_ROW_FET, LOW);
-  digitalWrite(PIN_COLUMN_FET, LOW);
-  delay(5000);
-
-  // int a = analogRead(1);
-  // Serial.print(a);
-  // if (a < 338)
-    // Serial.println(" I");
-  // delay(200);
+    }
+  }
 }
+
+// pinMode(pin, INPUT/OUTPUT);
+// digitalWrite(pin, LOW/HIGH);
+// analogRead(pin);  // 0-1024
+// digitalRead(pin); // HIGH or LOW
+// delay(ms)
